@@ -161,8 +161,42 @@
   <div class="cursor-ring" id="cursorRing" aria-hidden="true"></div>
 
   <script src="script.js"></script>
+
+  <!-- Progress Bar HTML -->
+<div id="progress-bar"></div>
+
+<style>
+  /* Progress Bar Styling */
+  #progress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 4px;
+    background-color: #f7c6d1; /* pink soft */
+    width: 0%;
+    z-index: 9999;
+    transition: width 0.25s ease-out;
+    border-radius: 0 0 4px 4px;
+  }
+</style>
+
+<script>
+  // Update progress bar width on scroll
+  window.addEventListener('scroll', () => {
+    const scrollTop = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const scrollPercent = (scrollTop / docHeight) * 100;
+
+    const progressBar = document.getElementById('progress-bar');
+    if (progressBar) {
+      progressBar.style.width = scrollPercent + '%';
+    }
+  });
+</script>
+  
 </body>
 </html>
+
 
 
 
