@@ -5,21 +5,21 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Syifa's Portfolio</title>
 
-  <!-- Google Fonts -->
+  <!-- Modern typewriter font -->
   <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 
-  <!-- Link to external CSS -->
+  <!-- main stylesheet -->
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
   <!-- NAV -->
-  <nav class="nav" aria-label="Primary navigation">
-    <a href="#about" aria-label="About Me">About Me</a>
-    <a href="#projects" aria-label="Projects">Projects</a>
-    <a href="#skills" aria-label="Skills">Skills</a>
-    <a href="#get-in-touch" aria-label="Get in Touch">Get in Touch</a>
-    <a href="#contact-short" aria-label="Contact">Contact</a>
+  <nav class="nav" aria-label="Primary">
+    <a href="#about">About Me</a>
+    <a href="#projects">Projects</a>
+    <a href="#skills">Skills</a>
+    <a href="#get-in-touch">Get in Touch</a>
+    <a href="#contact-short">Contact</a>
   </nav>
 
   <!-- HEADER / HERO -->
@@ -29,8 +29,9 @@
       <div id="typing" class="typing" aria-live="polite"></div>
     </div>
 
-    <!-- photo with black circle behind -->
+    <!-- big circular photo, shifted left -->
     <div class="photo-wrap" aria-hidden="false">
+      <!-- using <img> ensures crisp edges and avoids background artifacts -->
       <img src="syifaa's photo.jpg" alt="Foto Syifa" class="photo-img" id="profilePhoto" />
     </div>
   </header>
@@ -40,11 +41,7 @@
     <!-- ABOUT -->
     <section id="about" class="card" aria-labelledby="about-heading">
       <h2 id="about-heading" class="section-title">About Me</h2>
-      <p class="about-text">
-        Hi, I'm Syifa Ananda Sukmana, an Information Technology student with a strong interest in digital business.
-        I enjoy exploring the intersection of technology, creativity, and entrepreneurship. Through this portfolio,
-        I aim to showcase my projects and my growth in both IT and business.
-      </p>
+      <p class="about-text">Hi, I'm Syifa Ananda Sukmana, an Information Technology student with a strong interest in digital business. I enjoy exploring the intersection of technology, creativity, and entrepreneurship. Through this portfolio, I aim to showcase my projects and my growth in both IT and business.</p>
     </section>
 
     <!-- PROJECTS -->
@@ -83,7 +80,7 @@
         <button class="skill" data-skill="Java">Java</button>
         <button class="skill" data-skill="Report Writing">Report Writing</button>
       </div>
-    </section>
+</section>
 
     <!-- GET IN TOUCH -->
     <section id="get-in-touch" class="card" aria-labelledby="get-in-touch-heading">
@@ -102,6 +99,7 @@
     <section id="contact-short" class="card" aria-labelledby="contact-heading">
       <h2 id="contact-heading" class="section-title">Contact</h2>
 
+      <!-- contact items only show icon + name. First click shows preview modal, second click (in modal) opens link -->
       <div class="contacts" role="list">
         <div class="contact-item" role="listitem">
           <button class="contact-preview" data-type="email" data-href="mailto:syifaanandasukmana22@gmail.com" aria-haspopup="dialog">
@@ -120,16 +118,47 @@
         <div class="contact-item" role="listitem">
           <button class="contact-preview" data-type="linkedin" data-href="https://www.linkedin.com/in/syifa-ananda-sukmana" aria-haspopup="dialog">
             <span class="icon" aria-hidden="true">in</span>
-            <span class="label">LinkedIn</span>
+            <span class="label">linkedin</span>
           </button>
         </div>
       </div>
     </section>
 
-    <!-- footer -->
-    <footer class="footer">© 2025 Syifa. All Rights Reserved.</footer>
+    <!-- bottom quotes (replacing circles) -->
+    <div class="bottom-quotes" aria-hidden="false">
+      <div class="quote">"Always curious, always growing."</div>
+      <div class="quote">"Designing with intention and heart."</div>
+      <div class="quote">"Where creativity meets technology."</div>
+    </div>
 
   </main>
+
+  <!-- footer with normal system font -->
+  <footer class="footer">© 2025 Syifa. All Rights Reserved.</footer>
+
+  <!-- Project detail overlay (opens when clicking project) -->
+  <div id="overlay" class="overlay" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="detail" role="document">
+      <button id="closeDetail" class="close" aria-label="Close">✕</button>
+      <h3 id="detailTitle"></h3>
+      <div id="detailMeta" class="meta"></div>
+      <p id="detailBody"></p>
+    </div>
+  </div>
+
+  <!-- contact preview modal -->
+  <div id="contactPreview" class="overlay" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="detail preview">
+      <button id="closeContactPreview" class="close" aria-label="Close">✕</button>
+      <h3 id="previewTitle"></h3>
+      <p id="previewHref" class="muted small"></p>
+      <div style="margin-top:12px"><button id="openContactLink" class="btn">Open Link</button></div>
+    </div>
+  </div>
+
+  <!-- custom cursor -->
+  <div class="cursor-small" id="cursorSmall" aria-hidden="true"></div>
+  <div class="cursor-ring" id="cursorRing" aria-hidden="true"></div>
 
   <script src="script.js"></script>
 </body>
