@@ -41,7 +41,7 @@
     <!-- ABOUT -->
     <section id="about" class="card" aria-labelledby="about-heading">
       <h2 id="about-heading" class="section-title">About Me</h2>
-      <p class="about-text">Hi, I'm Syifa Ananda Sukmana, an Information Technology student with a strong interest in digital business. I enjoy exploring the intersection of technology, creativity, and entrepreneurship. Through this portfolio, I aim to showcase my projects and my growth in both IT and business.</p>
+      <p class="about-text">Hi, I’m Syifa Ananda Sukmana. I’m an Information Technology student with an educational background in Digital Business. I’m interested in technology, digital marketing, and system development. I continue to build my skills through projects and learning experiences to create efficient and impactful digital solutions.</p>
     </section>
 
     <!-- PROJECTS -->
@@ -286,9 +286,107 @@
     }, 2500);
   });
 </script>
+
+<!-- Help Button -->
+<button id="helpButton" style="
+  position: fixed;
+  bottom: 30px;
+  left: 30px;
+  background: #f7c6d1; /* soft pink */
+  border: none;
+  color: #5a2c3f; /* muted text */
+  padding: 14px 20px;
+  border-radius: 50px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 10px 25px rgba(247, 198, 209, 0.6);
+  z-index: 10001;
+  transition: background 0.3s ease, color 0.3s ease;
+  user-select: none;
+  font-family: 'Space Mono', monospace;
+">❔Help</button>
+
+<!-- Help Modal -->
+<div id="helpModal" role="dialog" aria-modal="true" aria-labelledby="helpTitle" aria-hidden="true" style="
+  position: fixed;
+  inset: 0;
+  background: rgba(247, 198, 209, 0.3); /* translucent soft pink */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+  z-index: 10000;
+  font-family: 'Space Mono', monospace;
+">
+  <div style="
+    background: #fff8fb; /* very soft pink background */
+    padding: 24px 32px;
+    border-radius: 16px;
+    max-width: 360px;
+    box-shadow: 0 30px 80px rgba(87, 57, 63, 0.15);
+    text-align: center;
+    color: #5a2c3f; /* muted text */
+  ">
+    <h2 id="helpTitle" style="margin-top:0; margin-bottom:16px;">Special Notes</h2>
+    <p style="margin:12px 0; line-height:1.4; font-weight:500;">This portfolio is still under development, so some sections may be updated continuously.</p>
+    <p style="margin:12px 0; line-height:1.4; font-weight:500;">Thank you for visiting, feel free to leave feedback!</p>
+    <button id="closeHelp" aria-label="Close help" style="
+      margin-top: 20px;
+      background: #f7c6d1;
+      border: none;
+      color: #5a2c3f;
+      padding: 8px 14px;
+      border-radius: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.3s ease, color 0.3s ease;
+      font-family: 'Space Mono', monospace;
+    ">✕</button>
+  </div>
+</div>
+
+<script>
+  const helpButton = document.getElementById('helpButton');
+  const helpModal = document.getElementById('helpModal');
+  const closeHelp = document.getElementById('closeHelp');
+
+  helpButton.addEventListener('click', () => {
+    const isOpen = helpModal.getAttribute('aria-hidden') === 'false';
+    if (isOpen) {
+      helpModal.setAttribute('aria-hidden', 'true');
+      helpButton.setAttribute('aria-expanded', 'false');
+      helpModal.style.opacity = 0;
+      helpModal.style.pointerEvents = 'none';
+    } else {
+      helpModal.setAttribute('aria-hidden', 'false');
+      helpButton.setAttribute('aria-expanded', 'true');
+      helpModal.style.opacity = 1;
+      helpModal.style.pointerEvents = 'auto';
+    }
+  });
+
+  closeHelp.addEventListener('click', () => {
+    helpModal.setAttribute('aria-hidden', 'true');
+    helpButton.setAttribute('aria-expanded', 'false');
+    helpModal.style.opacity = 0;
+    helpModal.style.pointerEvents = 'none';
+  });
+
+  helpModal.addEventListener('click', (e) => {
+    if (e.target === helpModal) {
+      helpModal.setAttribute('aria-hidden', 'true');
+      helpButton.setAttribute('aria-expanded', 'false');
+      helpModal.style.opacity = 0;
+      helpModal.style.pointerEvents = 'none';
+    }
+  });
+</script>
   
 </body>
 </html>
+
 
 
 
