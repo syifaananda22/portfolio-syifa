@@ -201,3 +201,174 @@ a{color:inherit;text-decoration:none}
   .title{font-size:26px}
   .quote{width:92%}
 }
+
+/* ============================
+   ADDITIONAL MOBILE-ONLY RULES
+   (<= 600px) — ONLY MOBILE FIX
+   ============================ */
+@media (max-width: 600px) {
+
+  /* NAVBAR - keep desktop unchanged; make mobile centered, compact, and wrap */
+  .nav {
+    left: 50%;
+    transform: translateX(-50%);
+    top: 12px;
+    padding: 6px 10px;
+    gap: 8px;
+    max-width: calc(100% - 24px);
+    justify-content: center;
+    flex-wrap: wrap;
+    box-shadow: 0 8px 22px rgba(47,15,25,0.08);
+  }
+  .nav a {
+    padding: 6px 8px;
+    font-size: 13px;
+    border-radius: 10px;
+    white-space: nowrap;
+  }
+
+  /* HERO - stack vertically, center text */
+  .wrap {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding-top: 120px; /* give room for fixed nav */
+    padding-bottom: 20px;
+    gap: 18px;
+  }
+
+  .hero {
+    width: 100%;
+    padding: 0 18px;
+  }
+
+  .title {
+    font-size: 28px;
+    line-height: 1.15;
+    margin-bottom: 6px;
+  }
+
+  .typing {
+    font-size: 14px;
+    white-space: normal;
+    overflow: visible;
+    padding-right: 0;
+    margin: 0 auto;
+    max-width: 92%;
+  }
+
+  /* PHOTO - ensure perfect circle, remove horizontal transform on mobile */
+  .photo-wrap {
+    width: 180px;
+    height: 180px;
+    flex: 0 0 180px;
+    transform: none !important;
+    margin: 0 auto;
+    box-shadow: 0 20px 50px rgba(47,15,25,0.12);
+    background: linear-gradient(135deg, var(--bubble-a), #fff);
+  }
+
+  .photo-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    display: block;
+  }
+
+  /* Cards & sections: comfortable padding/margins on mobile */
+  .card {
+    margin: 18px 14px;
+    padding: 16px;
+    border-radius: 14px;
+  }
+
+  .section-title {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+
+  /* Projects: single column, centered */
+  .projects {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+    padding: 8px 0;
+  }
+
+  .project-card {
+    width: 100%;
+    max-width: 360px;
+    box-sizing: border-box;
+  }
+
+  /* Skills grid: two columns, wrap nicely */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    padding: 6px 0;
+  }
+
+  .skill {
+    font-size: 14px;
+    padding: 10px;
+    border-radius: 12px;
+    text-align: center;
+  }
+
+  /* Contact form: single column and full-width inputs */
+  .contact-form {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+    max-width: 100%;
+    padding: 0;
+  }
+  .contact-form textarea { grid-column: 1/2; min-height: 100px; }
+
+  /* Contacts pills: make them compact and centered */
+  .contacts {
+    justify-content: center;
+    gap: 10px;
+  }
+  .contact-preview {
+    padding: 8px 10px;
+    gap: 8px;
+    border-radius: 999px;
+    font-size: 14px;
+  }
+  .contact-preview .icon { width: 28px; height: 28px; }
+
+  /* Bottom quotes: stack and fit screen */
+  .bottom-quotes {
+    flex-direction: column;
+    gap: 12px;
+    padding: 12px 16px 36px;
+  }
+  .quote {
+    width: 100%;
+    max-width: 360px;
+    margin: 0 auto;
+    padding: 12px;
+    font-size: 14px;
+  }
+
+  /* Footer smaller */
+  .footer {
+    margin: 24px 10px 40px;
+    font-size: 14px;
+  }
+
+  /* Small performance / UX tweaks */
+  .cursor-small, .cursor-ring {
+    display: none; /* hide custom cursor overlay on mobile for better UX */
+  }
+
+  /* Prevent fixed elements overlapping content too much */
+  body { padding-top: 56px; }
+
+  /* keep project-card hover accessible but not disruptive on touch */
+  .project-card:hover { transform: none; box-shadow: 0 12px 32px rgba(47,15,25,0.08); }
+}
