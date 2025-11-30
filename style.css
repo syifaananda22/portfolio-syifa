@@ -202,10 +202,6 @@ a{color:inherit;text-decoration:none}
   .quote{width:92%}
 }
 
-/* ============================
-   ADDITIONAL MOBILE-ONLY RULES
-   (<= 600px) — ONLY MOBILE FIX
-   ============================ */
 @media (max-width: 600px) {
 
   /* NAVBAR - keep desktop unchanged; make mobile centered, compact, and wrap */
